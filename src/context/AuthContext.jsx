@@ -2,33 +2,35 @@ import { createContext, useContext, useState } from "react";
 
 const AuthContext = createContext();
 
-export function AuthProvider(props) {
-    const {children} = props;
-
+export function AuthProvider({ children }) {
+    // Inicializamos el estado leyendo del localStorage
     const [token, setToken] = useState(localStorage.getItem("token") || null);
-//funcion para guardar el token en el estado
-    const login = (nuevoToken) => {
+    const [rol, setRol] = useState(localStorage.getItem("rol") || null);
+
+    // Login actualizado: recibe token Y rol
+    const login = (nuevoToken, nuevoRol) => {
         localStorage.setItem("token", nuevoToken);
+        localStorage.setItem("rol", nuevoRol);
         setToken(nuevoToken);
+        setRol(nuevoRol);
     };
-//serrar secion    
+
+    // Logout: Limpia TODO
     const logout = () => {
-        localStorage.removeItem('token');
+        localStorage.clear(); // Limpia token, rol, username, etc.
         setToken(null);
+        setRol(null);
     };
-//registrar usuario
-    const registrar = (nuvoUsuario) => {
-        localStorage.setItem("username", nuevoUsuario);
-    }
 
-    return(
-        <AuthContext.Provider 
-            value={{token, login, logout}}
-        >{children}</AuthContext.Provider>
-    )
+    // ... registrar ...
 
+    return (
+        <AuthContext.Provider value={{ token, rol, login, logout }}>
+            {children}
+        </AuthContext.Provider>
+    );
 }
 
-export function useAuth(){
-    return useContext(AuthContext)
+export function useAuth() {
+    return useContext(AuthContext);
 }
