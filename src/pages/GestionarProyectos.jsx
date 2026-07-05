@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { API_BASE_URL } from "../config/apiConfig";
+import { useNavigate } from "react-router-dom";
 
 function GestionarProyectos() {
     const { token } = useAuth();
     const [proyectos, setProyectos] = useState([]);
+    const navigate = useNavigate();
 
     // Cargar proyectos al iniciar
     useEffect(() => {

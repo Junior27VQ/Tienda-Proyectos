@@ -43,13 +43,42 @@ function EditarProyecto() {
     };
 
     return (
-        <form onSubmit={handleUpdate}>
-            <h2>Editar Proyecto</h2>
-            <input value={proyecto.nombre} onChange={e => setProyecto({...proyecto, nombre: e.target.value})} />
-            <input value={proyecto.descripcion} onChange={e => setProyecto({...proyecto, descripcion: e.target.value})} />
-            <input type="date" value={proyecto.fechaInicio} onChange={e => setProyecto({...proyecto, fechaInicio: e.target.value})} />
-            <button type="submit">Guardar Cambios</button>
-        </form>
+        <div className="form-container">
+            <form className="project-form" onSubmit={handleUpdate}>
+                <h2>Editar Proyecto</h2>
+                
+                <div className="form-group">
+                    <label>Nombre del Proyecto</label>
+                    <input 
+                        type="text" value={proyecto.nombre} required
+                        onChange={e => setProyecto({...proyecto, nombre: e.target.value})} 
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label>Descripción</label>
+                    <textarea 
+                        value={proyecto.descripcion} required
+                        onChange={e => setProyecto({...proyecto, descripcion: e.target.value})} 
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label>Fecha de Inicio</label>
+                    <input 
+                        type="date" value={proyecto.fechaInicio} required
+                        onChange={e => setProyecto({...proyecto, fechaInicio: e.target.value})} 
+                    />
+                </div>
+
+                <div className="button-group">
+                    <button type="submit" className="btn-submit">Guardar Cambios</button>
+                    <button type="button" className="btn-cancel" onClick={() => navigate('/gestionar-proyectos')}>
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
     );
 }
 export default EditarProyecto;

@@ -7,10 +7,11 @@ function Navbar() {
     const navigate = useNavigate();
 
     const handleLogout = async () => {
+        const tokenSeguro = localStorage.getItem("token");
         try {
             await fetch(`${API_BASE_URL}/api/auth/logout`, {
                 method: 'POST',
-                headers: { 'Authorization': `Bearer ${token}` }
+                headers: { 'Authorization': `Bearer ${tokenSeguro}` }
             });
         } catch (err) {
             console.error('Error al revocar token:', err);

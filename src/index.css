@@ -235,3 +235,27 @@ th { background-color: #f8f9fa; font-weight: bold; }
 .proyecto-card:hover { transform: translateY(-5px); box-shadow: 0 6px 12px rgba(0,0,0,0.1); }
 .proyecto-card h3 { margin-top: 0; color: #007bff; }
 .card-footer { margin-top: 15px; font-size: 0.9em; color: #7f8c8d; }
+
+/*Editar Proyecto*/
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-cancel {
+    flex: 1;
+    padding: 12px;
+    background-color: #6c757d; /* Color gris para cancelar */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-cancel:hover { background-color: #5a6268; }
+
+/* Aseguramos que el botón de guardar ocupe el resto del espacio */
+.btn-submit { flex: 2; }
