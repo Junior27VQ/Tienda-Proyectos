@@ -8,9 +8,9 @@ import Login from './pages/Login';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import Navbar from './componets/Navbar';
 import PanelProyectos from './pages/PanelProyectos';
-import FormularioProyecto from './pages/FormularioProyecto';
 import ProtectedRoute from './componets/ProtecteRoute';
 import Perfil from './pages/Perfil';
+import FormularioProyecto from './componets/FormularioProyectos';
 
 function App() {
 
