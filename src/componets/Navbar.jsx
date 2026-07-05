@@ -14,16 +14,17 @@ function Navbar() {
             });
         } catch (err) {
             console.error('Error al revocar token:', err);
+        } finally {
+            logout();
+            navigate('/');
         }
-        logout();
-        navigate('/');
     };
 
     return (
         <nav className="navbar">
             <div className="logo">Gestión Proyectos</div>
             <ul>
-                {rol === 'USER' && (
+                {token && (
                 <li><Link to="/proyectos">Ver Proyectos</Link></li>
                 )}
                 {rol === 'ADMIN' && (
@@ -32,10 +33,10 @@ function Navbar() {
                         <li><Link to="/crear-tarea">Crear Tarea</Link></li>
                     </>
                 )}
-                {rol === 'USER' && (
-                <li>
-                    <button onClick={handleLogout} className="btn-logout">Cerrar Sesión</button>
-                </li>
+                {token && (
+                    <li>
+                        <button onClick={handleLogout} className="btn-logout">Cerrar Sesión</button>
+                    </li>
                 )}
             </ul>
         </nav>

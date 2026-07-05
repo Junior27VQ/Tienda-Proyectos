@@ -32,8 +32,8 @@ function Login(){
             }
             
             const datos = await response.json();
-            login(datos.token);
-            navigate('/proyectos');
+            login(datos.token, datos.rol);
+            navigate('/perfil');
 
         }catch(err){
             setError(err.message)

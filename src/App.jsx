@@ -10,6 +10,7 @@ import Navbar from './componets/Navbar';
 import PanelProyectos from './pages/PanelProyectos';
 import FormularioProyecto from './pages/FormularioProyecto';
 import ProtectedRoute from './componets/ProtecteRoute';
+import Perfil from './pages/Perfil';
 
 function App() {
 
@@ -24,6 +25,8 @@ function App() {
                        
             <Route path="/" element={<Login />} />
             <Route element={ <ProtectedRoute/> }>
+              <Route path="/perfil" element={ <Perfil /> } />
+
               <Route path="/proyectos" element={ <PanelProyectos /> } />
 
               <Route path="/crear-tarea" element={<FormularioProyecto />} />
