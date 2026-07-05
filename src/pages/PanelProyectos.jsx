@@ -13,7 +13,7 @@ function PanelProyectos() {
                 const response = await fetch(`${API_BASE_URL}/api/proyectos`, {
                     method: 'GET',
                     headers: {
-                        // AQUÍ ESTÁ LA CLAVE DEL EXAMEN:
+                       
                         'Authorization': `Bearer ${token}`, 
                         'Content-Type': 'application/json'
                     }
@@ -43,7 +43,7 @@ function PanelProyectos() {
                     <tr>
                         <th>ID</th>
                         <th>Descripción</th>
-                        <th>Fecha Límite</th>
+                        <th>Fecha de Inicio</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,7 +51,7 @@ function PanelProyectos() {
                         <tr key={p.id}>
                             <td>{p.id}</td>
                             <td>{p.descripcion}</td>
-                            <td>{p.fechaLimite}</td>
+                            <td>{p.fechaInicio}</td>
                         </tr>
                     ))}
                 </tbody>

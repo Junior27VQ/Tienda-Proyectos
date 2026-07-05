@@ -33,7 +33,7 @@ function Login(){
             
             const datos = await response.json();
             login(datos.token);
-            navigate('/perfil');
+            navigate('/proyectos');
 
         }catch(err){
             setError(err.message)
