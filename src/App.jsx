@@ -11,6 +11,8 @@ import PanelProyectos from './pages/PanelProyectos';
 import ProtectedRoute from './componets/ProtecteRoute';
 import Perfil from './pages/Perfil';
 import FormularioProyecto from './componets/FormularioProyectos';
+import GestionarProyectos from './pages/GestionarProyectos';
+import EditarProyecto from './componets/EditarProyecto';
 
 function App() {
 
@@ -30,6 +32,9 @@ function App() {
               <Route path="/proyectos" element={ <PanelProyectos /> } />
 
               <Route path="/crear-tarea" element={<FormularioProyecto />} />
+
+              <Route path="/gestionar-proyectos" element={<GestionarProyectos />} />
+              <Route path="/editar-proyecto/:id" element={<EditarProyecto />} />
 
             </Route>
             <Route path="*" element={<Navigate to="/" />} />

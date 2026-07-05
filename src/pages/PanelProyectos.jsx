@@ -35,27 +35,21 @@ function PanelProyectos() {
 
     return (
         <div className="panel-container">
-            <h2>Panel de Proyectos</h2>
-            {error && <div className="alert-error">{error}</div>}
+            <h2 className="panel-title">Panel de Proyectos</h2>
             
-            <table className="tabla-proyectos">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Descripción</th>
-                        <th>Fecha de Inicio</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {proyectos.map((p) => (
-                        <tr key={p.id}>
-                            <td>{p.id}</td>
-                            <td>{p.descripcion}</td>
-                            <td>{p.fechaInicio}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+            {error && <div className="error-alert">{error}</div>}
+            
+            <div className="proyectos-grid">
+                {proyectos.map((p) => (
+                    <div key={p.id} className="proyecto-card">
+                        <h3>Proyecto #{p.id}</h3>
+                        <p><strong>Descripción:</strong> {p.descripcion}</p>
+                        <div className="card-footer">
+                            <span>📅 {p.fechaInicio}</span>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }

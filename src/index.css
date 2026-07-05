@@ -139,3 +139,99 @@ button {
         justify-content: center;
     }
 }
+
+/*Gestionar proyectos*/
+.gestion-container { padding: 20px; max-width: 900px; margin: auto; }
+.titulo-gestion { color: #333; margin-bottom: 20px; text-align: center; }
+
+.table-wrapper { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd; }
+th { background-color: #f8f9fa; font-weight: bold; }
+
+.btn-edit { background-color: #4CAF50; color: white; border: none; padding: 6px 12px; margin-right: 5px; cursor: pointer; border-radius: 4px; }
+.btn-delete { background-color: #f44336; color: white; border: none; padding: 6px 12px; cursor: pointer; border-radius: 4px; }
+
+/* Diseño Responsive para móviles */
+@media screen and (max-width: 600px) {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead tr { display: none; }
+    tr { margin-bottom: 15px; border: 1px solid #ddd; padding: 10px; border-radius: 8px; }
+    td { text-align: right; border-bottom: none; position: relative; padding-left: 50%; }
+    td::before { content: attr(data-label); position: absolute; left: 15px; font-weight: bold; }
+    .acciones { text-align: center; padding-top: 10px; }
+}
+/*Formulario de proyecto*/
+.form-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.project-form {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 450px;
+}
+
+.project-form h2 { margin-bottom: 20px; text-align: center; color: #333; }
+
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: 600; color: #555; }
+
+.project-form input, 
+.project-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box; /* Importante para que el padding no rompa el tamaño */
+    font-size: 16px;
+}
+
+.project-form textarea { height: 100px; resize: vertical; }
+
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-submit:hover { background-color: #0056b3; }
+
+/*Panel de Proyectos*/
+.panel-container { padding: 20px; max-width: 1000px; margin: auto; }
+.panel-title { text-align: center; color: #2c3e50; margin-bottom: 30px; }
+
+.error-alert { 
+    background: #ffeded; color: #d32f2f; padding: 15px; 
+    border-radius: 8px; margin-bottom: 20px; border: 1px solid #ffcdd2; 
+}
+
+.proyectos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.proyecto-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    transition: transform 0.2s;
+}
+
+.proyecto-card:hover { transform: translateY(-5px); box-shadow: 0 6px 12px rgba(0,0,0,0.1); }
+.proyecto-card h3 { margin-top: 0; color: #007bff; }
+.card-footer { margin-top: 15px; font-size: 0.9em; color: #7f8c8d; }

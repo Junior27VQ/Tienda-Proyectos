@@ -30,21 +30,37 @@ function FormularioProyectos() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input 
-                type="text" placeholder="Nombre" 
-                onChange={e => setFormData({...formData, nombre: e.target.value})} 
-            />
-            <input 
-                type="text" placeholder="Descripción" 
-                onChange={e => setFormData({...formData, descripcion: e.target.value})} 
-            />
-            <input 
-                type="date" 
-                onChange={e => setFormData({...formData, fechaInicio: e.target.value})} 
-            />
-            <button type="submit">Crear Proyecto</button>
-        </form>
+        <div className="form-container">
+            <form className="project-form" onSubmit={handleSubmit}>
+                <h2>Crear Nuevo Proyecto</h2>
+                
+                <div className="form-group">
+                    <label>Nombre del Proyecto</label>
+                    <input 
+                        type="text" placeholder="Ej. Gestión de Inventarios" required
+                        onChange={e => setFormData({...formData, nombre: e.target.value})} 
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label>Descripción</label>
+                    <textarea 
+                        placeholder="Describe el proyecto..." required
+                        onChange={e => setFormData({...formData, descripcion: e.target.value})} 
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label>Fecha de Inicio</label>
+                    <input 
+                        type="date" required
+                        onChange={e => setFormData({...formData, fechaInicio: e.target.value})} 
+                    />
+                </div>
+
+                <button type="submit" className="btn-submit">Crear Proyecto</button>
+            </form>
+        </div>
     );
 }
 
